@@ -1,6 +1,6 @@
 {
 	"name": "svelte-edda",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"description": "Static documentation site generator for Markdown, built on Svelte 5 and Vite: live Svelte demos, Pagefind search, translations, versioned docs, llms.txt for AI agents, GitHub Pages ready.",
 	"keywords": [
 		"svelte",
