@@ -67,7 +67,7 @@ All options are listed in [Configuration](./configuration.md).
 | ---------------------- | ---------------------------------------------------------------- |
 | `svelte-edda dev`      | Starts the dev server; pages reload when you save.               |
 | `svelte-edda build`    | Builds the static site into `dist/`, including the search index. |
-| `svelte-edda preview`  | Serves the built site.                                           |
+| `svelte-edda preview`  | Serves the built site, search included.                          |
 | `svelte-edda check`    | Validates components, alerts, links and live demos.              |
 | `svelte-edda guide`    | Prints how to write this project's docs, for people and agents.  |
 | `svelte-edda generate` | Runs the [generators](./generated-pages.md) of the config.       |
@@ -79,14 +79,31 @@ Add them to `package.json`:
 	"scripts": {
 		"docs:dev": "svelte-edda dev",
 		"docs:build": "svelte-edda build",
+		"docs:preview": "svelte-edda preview",
 		"docs:check": "svelte-edda check"
 	}
 }
 ```
 
+The commands take these options:
+
+| Option          | Applies to       | What it does                                                                              |
+| --------------- | ---------------- | ----------------------------------------------------------------------------------------- |
+| `--root <dir>`  | all              | The project directory with `svelte-edda.config.ts`. Default: the current one.             |
+| `--port <port>` | `dev`, `preview` | The port to listen on. Default: 5173 for `dev`, 4173 for `preview`, or the next free one. |
+| `--host [host]` | `dev`, `preview` | Listens on all addresses, or on the given one, instead of only `localhost`.               |
+
+`--host` is what makes the server reachable from a phone on the same network or from outside a
+container: `svelte-edda preview --host --port 4173`.
+
+> [!NOTE]
+> Search needs the index that `svelte-edda build` writes, so the dev server has none: its search
+> dialog says so instead of returning results. To try search, build and preview the site:
+> `svelte-edda build && svelte-edda preview`.
+
 > [!TIP]
 > Run `svelte-edda check` in CI. It fails on a broken link or a misspelled component long before
 > anyone sees the page.
 
-If coding agents edit your docs, tell them about the last two commands: see
+If coding agents edit your docs, tell them about `svelte-edda guide` and `svelte-edda check`: see
 [AI agents](./ai-agents.md#editing-docs-with-an-agent).

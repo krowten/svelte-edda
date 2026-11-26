@@ -83,4 +83,5 @@ clone.
 ## Search
 
 The search index is built from the generated HTML at the end of `svelte-edda build`. In
-`svelte-edda dev` the search dialog says so instead of returning results.
+`svelte-edda dev` the search dialog says so instead of returning results; run `svelte-edda preview`
+after a build to try it locally (see [Commands](./getting-started.md#commands)).
