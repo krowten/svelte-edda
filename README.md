@@ -13,8 +13,6 @@ on GitHub ([comparison](https://krowten.github.io/svelte-edda/comparison/)).
 📖 **[Documentation](https://krowten.github.io/svelte-edda/)** (also readable [on GitHub](./docs/index.md)):
 writing pages, tabs, live demos, custom components, theming, deployment.
 
-![A svelte-edda documentation site: sidebar, tabs with install commands, table of contents](https://raw.githubusercontent.com/krowten/svelte-edda/main/.github/screenshot.png)
-
 - **Markdown is the source.** Components are HTML comments around ordinary Markdown, so pages read
   well on GitHub, in your npm package and for AI agents.
 - **Svelte components and live demos.** Tabs, cards, steps and a hero are built in. Register your own components; interactive ones hydrate as
