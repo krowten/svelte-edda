@@ -2,6 +2,7 @@ name: Release
 
 # Stages a release on npm when a `v*` tag is pushed; a maintainer then approves it on
 # npmjs.com (Staged Packages) with 2FA. The tag must match `version` in package.json.
+# npm authenticates through trusted publishing (OIDC, `id-token: write`); no token is stored.
 on:
   push:
     tags: ['v*']
@@ -38,6 +39,5 @@ jobs:
       # `prepublishOnly` runs lint, type checks, tests and the packed-tarball smoke test first.
       - run: npm stage publish --provenance --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           # lets scripts/guard-publish.ts through: only this workflow may target the public registry
           SVELTE_EDDA_NPM_RELEASE: '1'
