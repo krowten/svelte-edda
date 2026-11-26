@@ -1,0 +1,25 @@
+{
+	"$schema": "https://context7.com/schema/context7.json",
+	"projectTitle": "svelte-edda",
+	"description": "Static documentation site generator for Markdown, built on Svelte 5 and Vite: comment markers for components, live Svelte demos, Tailwind theming, Pagefind search, translations, versioned docs, generated API pages and llms.txt.",
+	"folders": ["docs"],
+	"excludeFiles": [
+		"CHANGELOG.md",
+		"CLAUDE.md",
+		"CODE_OF_CONDUCT.md",
+		"CONTRIBUTING.md",
+		"SECURITY.md",
+		"LICENSE"
+	],
+	"rules": [
+		"Install svelte-edda as a dev dependency and run `svelte-edda dev`, `svelte-edda build` or `svelte-edda check`; the project does not need Svelte, Vite or SvelteKit of its own.",
+		"Before editing a project's docs run `npx svelte-edda guide`, which prints its syntax and components; afterwards run `npx svelte-edda check` and fix what it reports.",
+		"Pages are plain Markdown files in `docs/`. `sidebar` and `nav` in `svelte-edda.config.ts` order the menu, with groups `{ text, items }` and `{ text, dir }`; without `sidebar` the menu follows the folders, where a numeric prefix such as `10-` orders pages and is dropped from the URL.",
+		"Components are HTML comments around Markdown: `<!-- name attr=\"value\" -->` … `<!-- /name -->`, or `<!-- name /-->` without content. Register them with `defineComponent` in `svelte-edda.config.ts`; every component gets the page language as the `lang` prop.",
+		"Tabs: `<!-- tabs -->`, then a bold label line such as `**npm**` before each variant, then `<!-- /tabs -->`. `<!-- cards -->` takes bold title lines the same way, `<!-- steps -->` one numbered list, `<!-- hero -->` a title, text and a paragraph of links.",
+		"Alerts use GitHub syntax: `> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`. MDX tags, `:::` containers and `{% %}` tags are not read.",
+		"A ```svelte live``` code block renders as a working component; it can import packages but not relative files.",
+		"Restyle the theme with a CSS file passed as `css` that overrides Tailwind `@theme` tokens: the `--color-accent-*` and `--color-base-*` (gray) scales, `--font-sans`, `--font-mono`.",
+		"`generate` in the config runs tools such as TypeDoc into a folder of the docs, and `svelteComponents({ dir, components, exclude })` there writes props tables of Svelte 5 components; never edit files that carry `<!-- Generated, do not edit by hand.`, change their source instead."
+	]
+}

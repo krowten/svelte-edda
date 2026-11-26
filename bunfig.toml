@@ -1,0 +1,7 @@
+[test]
+# e2e/ holds the Playwright suite, run with `bun run test:e2e`.
+root = "./test"
+
+[install]
+# The local .npmrc points npm at a private registry for trial publishes; the lockfile must not.
+registry = "https://registry.npmjs.org/"

@@ -1,0 +1,134 @@
+{
+	"name": "svelte-edda",
+	"version": "0.1.0",
+	"description": "Static documentation site generator for Markdown, built on Svelte 5 and Vite: live Svelte demos, Pagefind search, translations, versioned docs, llms.txt for AI agents, GitHub Pages ready.",
+	"keywords": [
+		"svelte",
+		"svelte5",
+		"documentation",
+		"docs",
+		"documentation-generator",
+		"static-site-generator",
+		"ssg",
+		"markdown",
+		"gfm",
+		"live-demo",
+		"islands",
+		"tailwindcss",
+		"pagefind",
+		"llms-txt",
+		"ai-agents",
+		"github-pages",
+		"vite",
+		"cli",
+		"documentation-tool",
+		"documentation-site",
+		"docs-as-code",
+		"docs-generator",
+		"static-site",
+		"i18n",
+		"versioning",
+		"llms",
+		"vitepress-alternative",
+		"docusaurus-alternative"
+	],
+	"license": "MIT",
+	"author": {
+		"name": "krowten",
+		"email": "me@krowten.dev",
+		"url": "https://github.com/krowten"
+	},
+	"homepage": "https://krowten.github.io/svelte-edda/",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/krowten/svelte-edda.git"
+	},
+	"bugs": {
+		"url": "https://github.com/krowten/svelte-edda/issues"
+	},
+	"type": "module",
+	"bin": {
+		"svelte-edda": "bin/svelte-edda.js"
+	},
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"bun": "./src/index.ts",
+			"default": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"bin",
+		"dist",
+		"docs",
+		"src",
+		"CHANGELOG.md"
+	],
+	"engines": {
+		"bun": ">=1.4",
+		"node": ">=22.18"
+	},
+	"scripts": {
+		"dev": "bun src/cli.ts dev",
+		"docs:build": "bun src/cli.ts build",
+		"docs:preview": "bun src/cli.ts preview",
+		"docs:check": "bun src/cli.ts check",
+		"build": "bun build src/cli.ts src/index.ts --target=node --outdir=dist --packages=external && tsc -p tsconfig.types.json",
+		"check": "bun check && svelte-check --tsconfig ./tsconfig.json",
+		"lint": "prettier --check . && eslint .",
+		"format": "prettier --write .",
+		"test": "bun test",
+		"smoke:pack": "node scripts/smoke-pack.mjs",
+		"lint:package": "publint --strict",
+		"prepack": "bun run build",
+		"prepublishOnly": "bun scripts/guard-publish.ts && bun run lint && bun run check && bun test && bun run smoke:pack && bun run lint:package",
+		"test:e2e": "playwright test"
+	},
+	"dependencies": {
+		"@shikijs/rehype": "^4.6.0",
+		"@sveltejs/vite-plugin-svelte": "^7.3.2",
+		"@tailwindcss/typography": "^0.5.20",
+		"@tailwindcss/vite": "^4.3.5",
+		"@types/hast": "^3.0.5",
+		"github-slugger": "^2.0.0",
+		"hast-util-to-html": "^9.0.7",
+		"hast-util-to-string": "^3.0.1",
+		"mdast-util-to-hast": "^13.2.2",
+		"mdast-util-to-string": "^4.0.0",
+		"messageformat": "^4.1.0",
+		"pagefind": "^1.6.0",
+		"remark-frontmatter": "^5.0.0",
+		"remark-gfm": "^4.0.1",
+		"remark-parse": "^11.0.0",
+		"remark-rehype": "^11.1.2",
+		"shiki": "^4.6.0",
+		"svelte": "^5.59.2",
+		"tailwindcss": "^4.3.5",
+		"unified": "^11.0.5",
+		"unist-util-visit": "^5.2.0",
+		"vfile": "^6.0.3",
+		"vite": "^8.3.8",
+		"yaml": "^2.9.1"
+	},
+	"devDependencies": {
+		"@axe-core/playwright": "^4.14.1",
+		"@eslint/js": "^10.0.1",
+		"@playwright/test": "^1.65.1",
+		"@types/bun": "^1.4.5",
+		"@types/mdast": "^4.0.4",
+		"@types/node": "^22",
+		"@types/unist": "^3.0.3",
+		"eslint": "^10.15.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.24.1",
+		"globals": "^17.14.0",
+		"prettier": "^3.10.1",
+		"prettier-plugin-svelte": "^4.2.0",
+		"prettier-plugin-tailwindcss": "^0.8.1",
+		"publint": "^0.3.25",
+		"svelte-check": "^4.7.8",
+		"typescript": "^6",
+		"typescript-eslint": "^8.74.0"
+	}
+}

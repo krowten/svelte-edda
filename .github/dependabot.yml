@@ -1,0 +1,52 @@
+version: 2
+
+updates:
+  # Svelte, Vite and Tailwind all move fast; weekly is often enough to notice a break while
+  # the change that caused it is still small.
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    ignore:
+      # svelte-check and typescript-eslint need the compiler API that TypeScript 7 removed
+      - dependency-name: typescript
+        versions: ['>=7']
+      # the oldest Node in `engines`, so the compiler rejects APIs Node 22 lacks
+      - dependency-name: '@types/node'
+        versions: ['>=23']
+    groups:
+      # one PR per family, so a review is about a change rather than a version bump
+      svelte:
+        patterns:
+          - svelte
+          - svelte-check
+          - '@sveltejs/*'
+          - vite
+      markdown:
+        patterns:
+          - unified
+          - remark-*
+          - rehype-*
+          - mdast-*
+          - hast-*
+          - unist-*
+          - vfile
+          - shiki
+          - '@shikijs/*'
+      tailwind:
+        patterns:
+          - tailwindcss
+          - '@tailwindcss/*'
+      tooling:
+        patterns:
+          - eslint*
+          - '@eslint/*'
+          - typescript-eslint
+          - prettier*
+          - publint
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
