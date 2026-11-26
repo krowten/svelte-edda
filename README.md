@@ -18,7 +18,7 @@ writing pages, tabs, live demos, custom components, theming, deployment.
 - **Markdown is the source.** Components are HTML comments around ordinary Markdown, so pages read
   well on GitHub, in your npm package and for AI agents.
 - **Svelte components and live demos.** Tabs, cards, steps and a hero are built in. Register your own components; interactive ones hydrate as
-  islands. A ` ```svelte live ` block renders as a working component above its source.
+  islands. A `svelte live` code block renders as a working component above its source.
 - **Tailwind theme.** Override colors and fonts with `@theme` tokens, swap the logo.
 - **Languages and versions.** A folder per language with fallback to the default one; older
   releases archived from git tags. Interface strings in MessageFormat 2 (English, Russian, German).

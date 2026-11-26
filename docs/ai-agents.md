@@ -50,16 +50,16 @@ The full documentation of svelte-edda is also in the installed package, at
 
 ### What `check` catches
 
-| Mistake                                                     | Example                               |
-| ----------------------------------------------------------- | ------------------------------------- |
-| Syntax of other tools, which would be printed as text       | `:::tip`, `<Tabs>`, `{% tabs %}`      |
-| A marker that is never closed, or closed without an opening | `<!-- tabs -->` alone                 |
-| An unknown, missing or invalid attribute                    | `<!-- badge tone="loud" -->`          |
-| Content a component cannot use                              | Tabs without a bold label line        |
-| An alert type GitHub does not have                          | `> [!WARN]`                           |
-| A link to a file that is not there                          | `[Install](./instal.md)`              |
-| A link to a heading that is not there                       | `[Usage](./install.md#usege)`         |
-| A live demo that does not compile                           | A missing brace in ` ```svelte live ` |
+| Mistake                                                     | Example                                  |
+| ----------------------------------------------------------- | ---------------------------------------- |
+| Syntax of other tools, which would be printed as text       | `:::tip`, `<Tabs>`, `{% tabs %}`         |
+| A marker that is never closed, or closed without an opening | `<!-- tabs -->` alone                    |
+| An unknown, missing or invalid attribute                    | `<!-- badge tone="loud" -->`             |
+| Content a component cannot use                              | Tabs without a bold label line           |
+| An alert type GitHub does not have                          | `> [!WARN]`                              |
+| A link to a file that is not there                          | `[Install](./instal.md)`                 |
+| A link to a heading that is not there                       | `[Usage](./install.md#usege)`            |
+| A live demo that does not compile                           | A missing brace in a `svelte live` block |
 
 `build` reports the same, and also a component or demo that throws while rendering. To show
 one of the foreign constructs as text, put it in a code span.

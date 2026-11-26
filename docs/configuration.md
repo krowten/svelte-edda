@@ -27,7 +27,7 @@ export default defineConfig({
 | `site`          | `string`                         |                    | Site origin such as `'https://me.github.io'`, without the `base` path, for absolute URLs and the sitemap. |
 | `repository`    | `string`                         |                    | Repository URL: adds the header link and "Edit this page".                                                |
 | `branch`        | `string`                         | `'main'`           | Branch for "Edit this page" links; their paths start at the git root.                                     |
-| `logo`          | `{ src, dark?, alt? }`           |                    | Logo images, see [Theming](./theming.md#logo).                                                            |
+| `logo`          | `{ src, dark? }`                 |                    | Logo shown instead of the title in the header, see [Theming](./theming.md#logo).                          |
 | `css`           | `string \| string[]`             |                    | Stylesheets imported after the default theme.                                                             |
 | `head`          | `string[] \| (page) => string[]` |                    | Raw HTML added to every page's `<head>`, see [below](#tags-per-page).                                     |
 | `components`    | `ComponentDefinition[]`          |                    | Your components, see [Custom components](./custom-components.md).                                         |

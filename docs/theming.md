@@ -99,11 +99,16 @@ export default defineConfig({
 ```ts
 export default defineConfig({
 	title: 'My library',
-	logo: { src: 'assets/logo.svg', dark: 'assets/logo-dark.svg', alt: 'My library' }
+	logo: { src: 'assets/logo.svg', dark: 'assets/logo-dark.svg' }
 });
 ```
 
-`dark` is optional and used in dark mode. Paths are relative to the config file.
+The logo takes the place of the title in the header, so draw the name into it: a wordmark, or a
+mark with the name beside it. The header shows it 32px high (`h-8`) and as wide as its proportions
+make it. Screen readers announce `title` for it, and the link leads to the home page.
+
+`dark` is optional and used in dark mode. Paths are relative to the config file; SVG, PNG and any
+other image format the browser shows will do.
 
 ## Dark mode
 

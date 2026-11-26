@@ -15,7 +15,7 @@ Tailwind.
   comments, which GitHub hides, around ordinary Markdown.
 - **Svelte components.** Register your own components in the config; mark them interactive and
   they hydrate in the browser as islands. Everything else ships as plain HTML.
-- **Live demos.** A ` ```svelte live ` code block renders as a working component above its
+- **Live demos.** A code block marked `svelte live` renders as a working component above its
   source.
 - **For agents.** Every page is also served as Markdown, plus `llms.txt` and `llms-full.txt`.
 - **Static output.** Build once, host anywhere; GitHub Pages works out of the box.

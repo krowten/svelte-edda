@@ -189,8 +189,7 @@ export function createRenderer(runner: ModuleRunner, config: ResolvedConfig, mod
 		repository: config.repository,
 		logo: config.logo && {
 			src: assetUrl(config, mode, config.logo.src),
-			dark: config.logo.dark && assetUrl(config, mode, config.logo.dark),
-			alt: config.logo.alt
+			dark: config.logo.dark && assetUrl(config, mode, config.logo.dark)
 		}
 	});
 

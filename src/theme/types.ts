@@ -7,7 +7,7 @@ export type LayoutLink = { title: string; url: string; current?: boolean; lang?:
 export type LayoutProps = {
 	site: {
 		title: string;
-		logo?: { src: string; dark?: string; alt: string };
+		logo?: { src: string; dark?: string };
 		repository?: string;
 	};
 	/** Home page of the current language and version. */

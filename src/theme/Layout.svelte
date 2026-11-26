@@ -67,19 +67,22 @@
 
 		<a
 			href={home}
-			class="text-base-900 dark:text-base-200 flex min-w-0 items-center gap-2 text-lg font-medium"
+			data-testid="site-home"
+			class="text-base-900 dark:text-base-200 flex min-w-0 items-center text-xl font-medium"
 		>
+			<!-- A logo replaces the name, so it carries the name as its text alternative. -->
 			{#if site.logo}
 				<img
 					src={site.logo.src}
-					alt={site.logo.alt}
+					alt={site.title}
 					class="h-8 w-auto {site.logo.dark ? 'dark:hidden' : ''}"
 				/>
 				{#if site.logo.dark}
-					<img src={site.logo.dark} alt={site.logo.alt} class="hidden h-8 w-auto dark:block" />
+					<img src={site.logo.dark} alt={site.title} class="hidden h-8 w-auto dark:block" />
 				{/if}
+			{:else}
+				<span class="truncate">{site.title}</span>
 			{/if}
-			<span class="truncate">{site.title}</span>
 		</a>
 
 		{#if nav.length > 0}

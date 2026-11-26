@@ -15,7 +15,7 @@ page Markdown and puts Svelte behind HTML comments.
 | A page is                 | GitHub Flavored Markdown                   | Markdown processed as a Vue component            |
 | `{{ }}` in the text       | Text                                       | Vue interpolation, escaped with `v-pre`          |
 | Components in a page      | HTML comments around Markdown              | Vue tags, imported in `<script setup>`           |
-| Live demos                | A ` ```svelte live ` block                 | Your own Vue components                          |
+| Live demos                | A `svelte live` code block                 | Your own Vue components                          |
 | JavaScript of a page      | Menus and search, plus interactive islands | Vue and the page's dynamic parts                 |
 | Search                    | Pagefind, on by default                    | MiniSearch or Algolia, switched on in the config |
 | Untranslated pages        | Fall back, with a notice                   | Not described in its documentation               |

@@ -1,6 +1,6 @@
 import { afterAll, expect, test } from 'bun:test';
 import { existsSync } from 'node:fs';
-import { mkdtemp, readFile, rm } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
@@ -89,5 +89,22 @@ test('writes robots.txt for a site at the root of its own domain', async () => {
 		expect(install).toMatch(/<script type="module" src="\/assets\/client-[\w-]+\.js">/);
 	} finally {
 		await rm(rootDir, { recursive: true, force: true });
+	}
+});
+
+test('a logo takes the place of the title in the header and is named after the site', async () => {
+	const logoDir = await mkdtemp(join(tmpdir(), 'svelte-edda-logo-'));
+	try {
+		const config = await loadConfig(join(import.meta.dir, 'fixtures', 'basic'));
+		const src = join(logoDir, 'wordmark.svg');
+		await writeFile(src, '<svg xmlns="http://www.w3.org/2000/svg" width="120" height="32"/>');
+		await build({ ...config, logo: { src }, outDir: join(logoDir, 'out') });
+		const home = await readFile(join(logoDir, 'out', 'index.html'), 'utf8');
+		const link = home.match(/<a[^>]*data-testid="site-home"[^>]*>([\s\S]*?)<\/a>/)?.[1];
+		expect(link).toMatch(/<img src="\/fixture\/_docs\/[^"]+" alt="Fixture"/);
+		// Only the image: the name in text would repeat the wordmark next to it.
+		expect(link?.replace(/<[^>]+>/g, '').trim()).toBe('');
+	} finally {
+		await rm(logoDir, { recursive: true, force: true });
 	}
 });

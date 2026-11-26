@@ -97,7 +97,7 @@ This page sets it up with svelte-edda, for a library whose code and docs share a
 
 - The page says what changed for the reader, not how the code changed.
 - Every new option is there with its default, and every new error with what to do about it.
-- Code samples run. A ` ```svelte live ` block is compiled by `check`; other samples are not, so
+- Code samples run. A `svelte live` code block is compiled by `check`; other samples are not, so
   try them.
 - The page has a `description`: search engines and `llms.txt` show it.
 

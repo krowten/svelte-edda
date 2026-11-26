@@ -42,7 +42,7 @@ export type ResolvedConfig = {
 	/** Always starts and ends with `/`. */
 	base: string;
 	site?: string;
-	logo?: { src: string; dark?: string; alt: string };
+	logo?: { src: string; dark?: string };
 	css: string[];
 	head: (page: HeadContext) => string[];
 	repository?: string;
@@ -226,8 +226,7 @@ export function resolveConfig(root: string, user: DocsConfig, configFile?: strin
 		site: user.site?.replace(/\/+$/, ''),
 		logo: user.logo && {
 			src: asset(user.logo.src),
-			dark: user.logo.dark && asset(user.logo.dark),
-			alt: user.logo.alt ?? user.title
+			dark: user.logo.dark && asset(user.logo.dark)
 		},
 		css: [user.css ?? []].flat().map(asset),
 		head: typeof user.head === 'function' ? user.head : () => (user.head as string[]) ?? [],

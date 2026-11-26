@@ -4,6 +4,13 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); versions follow
 [SemVer](https://semver.org) once the package leaves 0.x.
 
+## Unreleased
+
+- **Breaking:** a `logo` takes the place of the title in the header instead of standing beside it,
+  so draw the name into the image. Its text alternative is the site's `title`; the `alt` field is
+  gone.
+- The site title in the header is a step larger (`text-xl`).
+
 ## 0.1.0 - 2026-11-26
 
 First public release.

@@ -58,8 +58,11 @@ export type DocsConfig = {
 	 * `robots.txt` and absolute links in `llms.txt` need it.
 	 */
 	site?: string;
-	/** Logo paths are relative to the config file; `dark` is used in dark mode. */
-	logo?: { src: string; dark?: string; alt?: string };
+	/**
+	 * Logo shown in the header instead of the title, which becomes its text alternative. Paths are
+	 * relative to the config file; `dark` is used in dark mode.
+	 */
+	logo?: { src: string; dark?: string };
 	/** CSS files imported after the default theme: Tailwind `@theme` overrides, fonts, extra styles. */
 	css?: string | string[];
 	/**
