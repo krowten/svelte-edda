@@ -20,6 +20,9 @@ jobs:
       options: --ipc=host
     steps:
       - uses: actions/checkout@v7
+      # the container runs as root over a checkout owned by the runner user, and checkout marks it
+      # safe only for its own steps: without this git refuses it, and the tests lose page dates
+      - run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - run: npm install --global bun npm@latest
       # no `node-version`: only writes the registry auth for the image's own Node
       - uses: actions/setup-node@v7
